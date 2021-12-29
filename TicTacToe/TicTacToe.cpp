@@ -75,14 +75,22 @@ int main()
 	std::cout << "Game Over, that the final table of this game:" << std::endl;
 	game.printTable();
 
-	std::cout << "Winner: " << game.winner << std::endl;
+
+	// win/lose/draw game ending screen
 
 	if (game.winner == game.playerCharacter)
 	{
+		std::cout << "Winner: " << game.winner << std::endl;
 		std::cout << "Congratulations! You win!" << std::endl;
+	}
+	else if (game.winner == ' ')
+	{
+		std::cout << "There is no winner." << std::endl;
+		std::cout << "HMM, That looks like draw to me. Maybe another time..." << std::endl;
 	}
 	else
 	{
+		std::cout << "Winner: " << game.winner << std::endl;
 		std::cout << "Ow, You Looks like you lose. :( maybe another time..." << std::endl;
 	}
 
