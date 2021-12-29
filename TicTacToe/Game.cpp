@@ -31,6 +31,8 @@ void Game::printTable()
 
 void Game::AIMove()
 {
+	// after ai move it needs to check WinConditions(), and increase moveCount by 1.
+
 	srand(time(0));
 	while (true)
 	{
@@ -128,12 +130,17 @@ void Game::WinConditions()
 		isGameActive = false;
 	}
 
+	if (isGameEnd())
+	{
+		winner = ' ';
+		isGameActive = false;
+	}
+	
 }
 
 bool Game::isGameEnd()
 {
-	if (!isGameActive) { return false; }
-
+	
 	int blankSpace = 0;
 	for (int i = 0; i < 3; i++)
 	{
