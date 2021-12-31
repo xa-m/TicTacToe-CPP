@@ -141,7 +141,7 @@ void Game::WinConditions()
 		isGameActive = false;
 	}
 
-	if (isGameEnd())
+	if (isGameEnd() && !winner)
 	{
 		winner = ' ';
 		isGameActive = false;
