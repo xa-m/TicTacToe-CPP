@@ -26,7 +26,7 @@ int main()
 			{
 				// 2 inputs are in their correct form
 				// 
-			
+
 				// player symbol input
 				if (game.playerCharacter == 'x' || game.playerCharacter == 'X')
 				{
@@ -114,4 +114,5 @@ int main()
 		std::cout << "Ow, You Looks like you lose. :( maybe another time..." << std::endl;
 	}
 
+	system("pause");
 }
