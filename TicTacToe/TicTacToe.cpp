@@ -56,7 +56,11 @@ int main()
 				break;
 			}
 		}
+
 		CharNotAcceptable();
+		// clear variables
+		game.playerCharacter = NULL;
+		AIModeInput = NULL;
 	}
 
 
