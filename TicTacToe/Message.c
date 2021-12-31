@@ -34,3 +34,13 @@ void youLose()
 {
 	printf("Ow, You Looks like you lose. :( maybe another time...\n");
 }
+
+void selectXorO()
+{
+	printf("Select X or O by typing X or O\n");
+}
+
+void selectRandomOrAI()
+{
+	printf("Random = 0, AI Mode = 1\n");
+}

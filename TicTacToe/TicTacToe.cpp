@@ -19,9 +19,9 @@ int main()
 	// initilize loop
 	while (!game.isGameInit)
 	{
-		std::cout << "Select X or O by typing X or O" << std::endl;
+		selectXorO(); // message
 		std::cin >> game.playerCharacter;
-		std::cout << "Random = 0, AI Mode = 1" << std::endl;
+		selectRandomOrAI(); // message
 		std::cin >> AIModeInput;
 
 		if (game.playerCharacter == 'O' || game.playerCharacter == 'o' || game.playerCharacter == 'x' || game.playerCharacter == 'X')

@@ -13,3 +13,9 @@ void youWin();
 void itsDraw();
 
 void youLose();
+
+
+// init section
+void selectXorO();
+
+void selectRandomOrAI();
