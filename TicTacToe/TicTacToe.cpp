@@ -15,7 +15,6 @@ int main()
 	game.initGame();
 	WellcomeMessage();
 
-
 	// initilize loop
 	while (!game.isGameInit)
 	{
@@ -29,7 +28,6 @@ int main()
 			if (AIModeInput == 0 || AIModeInput == 1)
 			{
 				// 2 inputs are in their correct form
-				// 
 
 				// player symbol input
 				if (game.playerCharacter == 'x' || game.playerCharacter == 'X')
