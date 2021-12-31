@@ -28,7 +28,7 @@ public:
 	char playerCharacter;
 
 	// win conditions
-	char winner;
+	char winner = ' ';
 	void WinConditions();
 
 };
