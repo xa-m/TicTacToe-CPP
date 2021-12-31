@@ -7,6 +7,7 @@
 int main()
 {
 	Game game;
+	int AIModeInput;
 
 	game.initGame();
 	std::cout << "Wellcome to BasicTicTacToe\n";
@@ -16,21 +17,40 @@ int main()
 	{
 		std::cout << "Select X or O by typing X or O" << std::endl;
 		std::cin >> game.playerCharacter;
+		std::cout << "Random = 0, AI Mode = 1" << std::endl;
+		std::cin >> AIModeInput;
 
 		if (game.playerCharacter == 'O' || game.playerCharacter == 'o' || game.playerCharacter == 'x' || game.playerCharacter == 'X')
 		{
-			if (game.playerCharacter == 'x' || game.playerCharacter == 'X')
+			if (AIModeInput == 0 || AIModeInput == 1)
 			{
-				game.computerCharacter = 'O';
-				game.playerCharacter = 'X';
+				// 2 inputs are in their correct form
+				// 
+			
+				// player symbol input
+				if (game.playerCharacter == 'x' || game.playerCharacter == 'X')
+				{
+					game.computerCharacter = 'O';
+					game.playerCharacter = 'X';
+				}
+				else
+				{
+					game.computerCharacter = 'X';
+					game.playerCharacter = 'O';
+				}
+
+				// ai inputs
+				if (AIModeInput == 0)
+				{
+					game.isGameAIopen = false;
+				}
+				else if (AIModeInput == 1)
+				{
+					game.isGameAIopen = true;
+				}
+				game.isGameInit = true;
+				break;
 			}
-			else
-			{
-				game.computerCharacter = 'X';
-				game.playerCharacter = 'O';
-			}
-			game.isGameInit = true;
-			break;
 		}
 		std::cout << "This char is not acceptable... try again." << std::endl;
 	}

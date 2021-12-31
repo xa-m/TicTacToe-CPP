@@ -8,6 +8,7 @@ public:
 	char table[3][3] = { {' ', ' ', ' '}, {' ', ' ', ' '}, {' ', ' ', ' '} };
 
 	bool isGameInit = false;
+	bool isGameAIopen;
 	int moveCount = 0;
 	void initGame();
 

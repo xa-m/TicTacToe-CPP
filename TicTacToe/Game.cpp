@@ -33,19 +33,30 @@ void Game::AIMove()
 {
 	// after ai move it needs to check WinConditions(), and increase moveCount by 1.
 
-	srand(time(0));
-	while (true)
+	// if game ai is closed.
+	if (!isGameAIopen)
 	{
-		int Row = rand() % 3;
-		int Colmn = rand() % 3;
-		if (isMoveLegit(Row, Colmn))
+		srand(time(0));
+		while (true)
 		{
-			table[Row][Colmn] = computerCharacter;
-			moveCount += 1;
-			WinConditions();
-			break;
+			int Row = rand() % 3;
+			int Colmn = rand() % 3;
+			if (isMoveLegit(Row, Colmn))
+			{
+				table[Row][Colmn] = computerCharacter;
+				moveCount += 1;
+				WinConditions();
+				break;
+			}
 		}
+		return;
 	}
+
+	// if game ai is working...
+	// game ai section
+
+
+
 }
 
 void Game::WinConditions()
@@ -135,12 +146,12 @@ void Game::WinConditions()
 		winner = ' ';
 		isGameActive = false;
 	}
-	
+
 }
 
 bool Game::isGameEnd()
 {
-	
+
 	int blankSpace = 0;
 	for (int i = 0; i < 3; i++)
 	{
