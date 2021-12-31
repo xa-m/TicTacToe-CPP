@@ -3,6 +3,9 @@
 
 #include <iostream>
 #include "Game.h"
+extern "C" {
+#include "Message.h"
+}
 
 int main()
 {
@@ -10,7 +13,8 @@ int main()
 	int AIModeInput;
 
 	game.initGame();
-	std::cout << "Wellcome to BasicTicTacToe\n";
+	WellcomeMessage();
+
 
 	// initilize loop
 	while (!game.isGameInit)
@@ -52,7 +56,7 @@ int main()
 				break;
 			}
 		}
-		std::cout << "This char is not acceptable... try again." << std::endl;
+		CharNotAcceptable();
 	}
 
 
@@ -87,12 +91,12 @@ int main()
 		else
 		{
 			// ai is not gonna make any changes on table
-			std::cout << "This move is not legit, try another move.\n";
+			thisMoveisNotLegit();
 		}
 	}
 
 	// ending screen
-	std::cout << "Game Over, that the final table of this game:" << std::endl;
+	gameOverMsg();
 	game.printTable();
 
 
@@ -101,17 +105,17 @@ int main()
 	if (game.winner == game.playerCharacter)
 	{
 		std::cout << "Winner: " << game.winner << std::endl;
-		std::cout << "Congratulations! You win!" << std::endl;
+		youWin();
 	}
 	else if (game.winner == ' ')
 	{
 		std::cout << "There is no winner." << std::endl;
-		std::cout << "HMM, That looks like draw to me. Maybe another time..." << std::endl;
+		itsDraw();
 	}
 	else
 	{
 		std::cout << "Winner: " << game.winner << std::endl;
-		std::cout << "Ow, You Looks like you lose. :( maybe another time..." << std::endl;
+		youLose();
 	}
 
 	system("pause");
