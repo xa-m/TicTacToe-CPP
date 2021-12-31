@@ -19,7 +19,7 @@ public:
 	void AIMove();
 
 	
-	bool isGameEnd();
+	bool noBlankSpaceLeft();
 
 	bool isGameActive;
 

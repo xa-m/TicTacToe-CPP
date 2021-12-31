@@ -141,7 +141,7 @@ void Game::WinConditions()
 		isGameActive = false;
 	}
 
-	if (isGameEnd() && !winner)
+	if (noBlankSpaceLeft() && !winner)
 	{
 		winner = ' ';
 		isGameActive = false;
@@ -149,7 +149,7 @@ void Game::WinConditions()
 
 }
 
-bool Game::isGameEnd()
+bool Game::noBlankSpaceLeft()
 {
 
 	int blankSpace = 0;

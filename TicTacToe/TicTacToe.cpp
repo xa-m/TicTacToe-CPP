@@ -61,7 +61,7 @@ int main()
 
 
 	// main game loop
-	while (game.isGameActive && !game.isGameEnd() && game.isGameInit)
+	while (game.isGameActive && !game.noBlankSpaceLeft() && game.isGameInit)
 	{
 		int playerMoveRow = 0;
 		int playerMoveColmn = 0;
@@ -82,7 +82,7 @@ int main()
 			game.table[playerMoveRow - 1][playerMoveColmn - 1] = game.playerCharacter;
 			game.moveCount += 1;
 			game.WinConditions();
-			if (!game.isGameEnd() && game.isGameActive)
+			if (!game.noBlankSpaceLeft() && game.isGameActive)
 			{
 				game.AIMove();
 			}
