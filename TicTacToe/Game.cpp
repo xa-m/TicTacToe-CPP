@@ -333,22 +333,22 @@ void Game::AIMove()
 
 			if (moveCount == 8)
 			{
-				if (checkPlaceIsEmpty(1,0))
+				if (checkPlaceIsEmpty(1, 0))
 				{
 					table[1][0] = computerCharacter;
 					moveCount++;
 				}
-				if (checkPlaceIsEmpty(2,1))
+				if (checkPlaceIsEmpty(2, 1))
 				{
 					table[2][1] = computerCharacter;
 					moveCount++;
 				}
-				if (checkPlaceIsEmpty(0,1))
+				if (checkPlaceIsEmpty(0, 1))
 				{
 					table[0][1] = computerCharacter;
 					moveCount++;
 				}
-				if (checkPlaceIsEmpty(1,2))
+				if (checkPlaceIsEmpty(1, 2))
 				{
 					table[1][2] = computerCharacter;
 					moveCount++;
@@ -356,10 +356,11 @@ void Game::AIMove()
 			}
 		}
 
-	}
-	else
+	} 
+
+	if (computerCharacter == 'O')
 	{
-		// computer is 'O'
+
 	}
 
 	// checks win conditions
