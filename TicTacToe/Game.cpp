@@ -279,9 +279,14 @@ void Game::AIMove()
 			{
 				for (int i = 0; i < 3; i++)
 				{
-					if (table[i][0] == computerCharacter && table[i][2] == computerCharacter && table[i][1] == ' ')
+					if (table[i][1] == computerCharacter && table[i][2] == computerCharacter && table[i][0] == ' ')
 					{
-						table[i][1] = computerCharacter;
+						table[i][0] = computerCharacter;
+						moveCount++;
+					}
+					else if (table[i][0] == computerCharacter && table[i][1] == computerCharacter && table[i][2] == ' ')
+					{
+						table[i][2] = computerCharacter;
 						moveCount++;
 					}
 					else if (table[0][i] == computerCharacter && table[2][i] == computerCharacter && table[1][i] == ' ')
@@ -292,10 +297,6 @@ void Game::AIMove()
 				}
 			}
 		}
-
-	}
-	else if (computerCharacter == 'O')
-	{
 
 	}
 
