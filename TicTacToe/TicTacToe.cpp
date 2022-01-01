@@ -89,6 +89,7 @@ int main()
 				game.AIMove();
 			}
 			else { break; }
+			std::cout << game.moveCount << std::endl;
 		}
 		else
 		{
