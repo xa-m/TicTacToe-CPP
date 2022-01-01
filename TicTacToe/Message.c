@@ -3,6 +3,7 @@
 void WellcomeMessage()
 {
 	printf("Wellcome to BasicTicTacToe\n");
+	printf("Github: xa-m\n");
 }
 
 void CharNotAcceptable()
