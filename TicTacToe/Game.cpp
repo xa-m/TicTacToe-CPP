@@ -107,12 +107,12 @@ void Game::AIMove()
 			}
 			else if (table[0][2] == computerCharacter && table[1][2] == playerCharacter)
 			{
-				if (table[0][0] == ' ')
+				if (checkPlaceIsEmpty(0, 0))
 				{
 					table[0][0] = computerCharacter;
 					moveCount++;
 				}
-				else if (table[2][0] == ' ')
+				else if (checkPlaceIsEmpty(2, 0))
 				{
 					table[2][0] = computerCharacter;
 					moveCount++;
@@ -120,19 +120,19 @@ void Game::AIMove()
 			}
 
 
-			if (table[2][0] == computerCharacter && table[2][1] == ' ')
+			if (table[2][0] == computerCharacter && checkPlaceIsEmpty(2, 1))
 			{
 				table[2][1] = computerCharacter;
 				moveCount++;
 			}
 			else if (table[2][0] == computerCharacter && table[2][1] == playerCharacter)
 			{
-				if (table[0][2] == ' ')
+				if (checkPlaceIsEmpty(0, 2))
 				{
 					table[0][2] = computerCharacter;
 					moveCount++;
 				}
-				else if (table[0][0] == ' ')
+				else if (checkPlaceIsEmpty(0, 0))
 				{
 					table[0][0] = computerCharacter;
 					moveCount++;
@@ -145,12 +145,12 @@ void Game::AIMove()
 		if (moveCount == 4 && XGameStarsWithCenter)
 		{
 			// win condition
-			if (table[0][2] == playerCharacter && table[2][0] == ' ')
+			if (table[0][2] == playerCharacter && checkPlaceIsEmpty(2, 0))
 			{
 				table[2][0] = computerCharacter;
 				moveCount++;
 			}
-			else if (table[2][0] == playerCharacter && table[0][2] == ' ')
+			else if (table[2][0] == playerCharacter && checkPlaceIsEmpty(0, 2))
 			{
 				table[0][2] = computerCharacter;
 				moveCount++;
@@ -182,30 +182,30 @@ void Game::AIMove()
 		// regular game condition
 		if (moveCount == 6 && !XGameStarsWithCenter)
 		{
-			if (table[0][0] == computerCharacter && table[2][2] == computerCharacter && table[1][1] == ' ')
+			if (table[0][0] == computerCharacter && table[2][2] == computerCharacter && checkPlaceIsEmpty(1, 1))
 			{
 				table[1][1] = computerCharacter;
 				moveCount++;
 			}
-			else if (table[0][2] == computerCharacter && table[2][0] == computerCharacter && table[1][1] == ' ')
+			else if (table[0][2] == computerCharacter && table[2][0] == computerCharacter && checkPlaceIsEmpty(1, 1))
 			{
 				table[1][1] = computerCharacter;
 				moveCount++;
 			}
 
-			if (table[2][0] == computerCharacter && table[2][1] == ' ')
+			if (table[2][0] == computerCharacter && checkPlaceIsEmpty(2, 1))
 			{
 				table[2][1] = computerCharacter;
 				moveCount++;
 			}
 			else if (table[2][0] == computerCharacter && table[2][1] == playerCharacter)
 			{
-				if (table[0][2] == ' ')
+				if (checkPlaceIsEmpty(0, 2))
 				{
 					table[0][2] = computerCharacter;
 					moveCount++;
 				}
-				else if (table[0][0] == ' ')
+				else if (checkPlaceIsEmpty(2, 0))
 				{
 					table[0][0] = computerCharacter;
 					moveCount++;
@@ -213,12 +213,12 @@ void Game::AIMove()
 			}
 			for (int i = 0; i < 3; i++)
 			{
-				if (table[i][0] == computerCharacter && table[i][2] == computerCharacter && table[i][1] == ' ')
+				if (table[i][0] == computerCharacter && table[i][2] == computerCharacter && checkPlaceIsEmpty(i, 1))
 				{
 					table[i][1] = computerCharacter;
 					moveCount++;
 				}
-				if (table[0][i] == computerCharacter && table[2][i] == computerCharacter && table[1][i] == ' ')
+				if (table[0][i] == computerCharacter && table[2][i] == computerCharacter && checkPlaceIsEmpty(1, i))
 				{
 					table[1][i] = computerCharacter;
 					moveCount++;
@@ -233,12 +233,12 @@ void Game::AIMove()
 			{
 				if (table[2][0] == computerCharacter)
 				{
-					if (table[1][0] == ' ')
+					if (checkPlaceIsEmpty(1, 0))
 					{
 						table[1][0] = computerCharacter;
 						moveCount++;
 					}
-					else if (table[2][1] == ' ')
+					else if (checkPlaceIsEmpty(2, 1))
 					{
 						table[2][1] = computerCharacter;
 						moveCount++;
@@ -246,12 +246,12 @@ void Game::AIMove()
 				}
 				else if (table[0][2] == computerCharacter)
 				{
-					if (table[0][1] == ' ')
+					if (checkPlaceIsEmpty(0, 1))
 					{
 						table[0][1] = computerCharacter;
 						moveCount++;
 					}
-					else if (table[1][2] == ' ')
+					else if (checkPlaceIsEmpty(1, 2))
 					{
 						table[1][2] = computerCharacter;
 						moveCount++;
@@ -261,12 +261,12 @@ void Game::AIMove()
 				{
 					for (int i = 0; i < 3; i++)
 					{
-						if (table[i][0] == computerCharacter && table[i][2] == computerCharacter && table[i][1] == ' ')
+						if (table[i][0] == computerCharacter && table[i][2] == computerCharacter && checkPlaceIsEmpty(i, 1))
 						{
 							table[i][1] = computerCharacter;
 							moveCount++;
 						}
-						else if (table[0][i] == computerCharacter && table[2][i] == computerCharacter && table[1][i] == ' ')
+						else if (table[0][i] == computerCharacter && table[2][i] == computerCharacter && checkPlaceIsEmpty(1, i))
 						{
 							table[1][i] = computerCharacter;
 							moveCount++;
@@ -278,17 +278,17 @@ void Game::AIMove()
 			{
 				for (int i = 0; i < 3; i++)
 				{
-					if (table[i][1] == computerCharacter && table[i][2] == computerCharacter && table[i][0] == ' ')
+					if (table[i][1] == computerCharacter && table[i][2] == computerCharacter && checkPlaceIsEmpty(i, 0))
 					{
 						table[i][0] = computerCharacter;
 						moveCount++;
 					}
-					else if (table[i][0] == computerCharacter && table[i][1] == computerCharacter && table[i][2] == ' ')
+					else if (table[i][0] == computerCharacter && table[i][1] == computerCharacter && checkPlaceIsEmpty(i, 2))
 					{
 						table[i][2] = computerCharacter;
 						moveCount++;
 					}
-					else if (table[0][i] == computerCharacter && table[2][i] == computerCharacter && table[1][i] == ' ')
+					else if (table[0][i] == computerCharacter && table[2][i] == computerCharacter && checkPlaceIsEmpty(1, i))
 					{
 						table[1][i] = computerCharacter;
 						moveCount++;
@@ -314,17 +314,17 @@ void Game::AIMove()
 		{
 			for (int i = 0; i < 3; i++)
 			{
-				if (table[i][1] == computerCharacter && table[i][2] == computerCharacter && table[i][0] == ' ')
+				if (table[i][1] == computerCharacter && table[i][2] == computerCharacter && checkPlaceIsEmpty(i, 0))
 				{
 					table[i][0] = computerCharacter;
 					moveCount++;
 				}
-				else if (table[i][0] == computerCharacter && table[i][1] == computerCharacter && table[i][2] == ' ')
+				else if (table[i][0] == computerCharacter && table[i][1] == computerCharacter && checkPlaceIsEmpty(i, 2))
 				{
 					table[i][2] = computerCharacter;
 					moveCount++;
 				}
-				else if (table[0][i] == computerCharacter && table[2][i] == computerCharacter && table[1][i] == ' ')
+				else if (table[0][i] == computerCharacter && table[2][i] == computerCharacter && checkPlaceIsEmpty(1, i))
 				{
 					table[1][i] = computerCharacter;
 					moveCount++;
@@ -333,22 +333,22 @@ void Game::AIMove()
 
 			if (moveCount == 8)
 			{
-				if (table[1][0] == ' ')
+				if (checkPlaceIsEmpty(1,0))
 				{
 					table[1][0] = computerCharacter;
 					moveCount++;
 				}
-				if (table[2][1] == ' ')
+				if (checkPlaceIsEmpty(2,1))
 				{
 					table[2][1] = computerCharacter;
 					moveCount++;
 				}
-				if (table[0][1] == ' ')
+				if (checkPlaceIsEmpty(0,1))
 				{
 					table[0][1] = computerCharacter;
 					moveCount++;
 				}
-				if (table[1][2] == ' ')
+				if (checkPlaceIsEmpty(1,2))
 				{
 					table[1][2] = computerCharacter;
 					moveCount++;
