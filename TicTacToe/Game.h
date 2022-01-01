@@ -16,10 +16,8 @@ public:
 
 	void printTable();
 
-	void AIMove();
 
 	
-	bool noBlankSpaceLeft();
 
 	bool isGameActive;
 
@@ -30,6 +28,12 @@ public:
 	// win conditions
 	char winner = ' ';
 	void WinConditions();
+
+	// AI Section
+	void AIMove();
+	bool noBlankSpaceLeft();
+	bool XGameStarsWithCenter;
+
 
 };
 

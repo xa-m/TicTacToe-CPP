@@ -56,7 +56,139 @@ void Game::AIMove()
 	// game ai section
 
 
+	if (computerCharacter = 'X')
+	{
+		// first move
+		if (moveCount == 0)
+		{
+			table[2][2] = computerCharacter;
+			moveCount++;
+		}
 
+		if (moveCount == 2)
+		{
+			if (table[1][1] != 'O')
+			{
+				XGameStarsWithCenter = false;
+				// win condiiton
+				if (table[2][1] == 'O' || table[2][0] == 'O')
+				{
+					table[0][2] = computerCharacter;
+					moveCount++;
+				}
+				else
+				{
+					table[2][0] = computerCharacter;
+					moveCount++;
+				}
+
+				// old algorithm
+				/*else if (table[0][2] == 'O' || table[1][2] == 'O')
+				{
+					table[2][0] = computerCharacter;
+					moveCount++;
+				}*/
+			}
+			else
+			{
+				// enemy places O to center.
+				XGameStarsWithCenter = true;
+				table[0][0] = computerCharacter;
+			}
+		}
+
+		if (moveCount == 4 && !XGameStarsWithCenter)
+		{
+			if (table[0][2] == computerCharacter && table[1][2] == ' ')
+			{
+				table[1][2] = computerCharacter;
+				moveCount++;
+			}
+			else if (table[0][2] == computerCharacter && table[1][2] == playerCharacter)
+			{
+				if (table[0][0] == ' ')
+				{
+					table[0][0] = computerCharacter;
+					moveCount++;
+				}
+				else if (table[2][0] == ' ')
+				{
+					table[2][0] = computerCharacter;
+					moveCount++;
+				}
+			}
+
+
+			if (table[2][0] == computerCharacter && table[2][1] == ' ')
+			{
+				table[2][1] = computerCharacter;
+				moveCount++;
+			}
+			else if (table[2][0] == computerCharacter && table[2][1] == playerCharacter)
+			{
+				if (table[0][2] == ' ')
+				{
+					table[0][2] = computerCharacter;
+					moveCount++;
+				}
+				else if (table[0][0] == ' ')
+				{
+					table[0][0] = computerCharacter;
+					moveCount++;
+				}
+			}
+		}
+
+		if (moveCount == 6 && !XGameStarsWithCenter)
+		{
+			if (table[0][0] == computerCharacter && table[2][2] == computerCharacter && table[1][1] == ' ')
+			{
+				table[1][1] = computerCharacter;
+				moveCount++;
+			}
+			else if (table[0][2] == computerCharacter && table[2][0] == computerCharacter && table[1][1] == ' ')
+			{
+				table[1][1] = computerCharacter;
+				moveCount++;
+			}
+
+			if (table[2][0] == computerCharacter && table[2][1] == ' ')
+			{
+				table[2][1] = computerCharacter;
+				moveCount++;
+			}
+			else if (table[2][0] == computerCharacter && table[2][1] == playerCharacter)
+			{
+				if (table[0][2] == ' ')
+				{
+					table[0][2] = computerCharacter;
+					moveCount++;
+				}
+				else if (table[0][0] == ' ')
+				{
+					table[0][0] = computerCharacter;
+					moveCount++;
+				}
+			}
+			for (int i = 0; i < 3; i++)
+			{
+				if (table[i][0] == computerCharacter && table[i][2] == computerCharacter && table[i][1] == ' ')
+				{
+					table[i][1] = computerCharacter;
+					moveCount++;
+				}
+				if (table[0][i] == computerCharacter && table[2][i] == computerCharacter && table[1][i] == ' ')
+				{
+					table[1][i] = computerCharacter;
+					moveCount++;
+				}
+			}
+		}
+
+	}
+
+	// checks win conditions
+	WinConditions();
 }
 
 void Game::WinConditions()
