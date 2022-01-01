@@ -86,10 +86,10 @@ int main()
 			game.WinConditions();
 			if (!game.noBlankSpaceLeft() && game.isGameActive)
 			{
+				std::cout << "Current move count: " << game.moveCount << std::endl;
 				game.AIMove();
 			}
 			else { break; }
-			std::cout << game.moveCount << std::endl;
 		}
 		else
 		{

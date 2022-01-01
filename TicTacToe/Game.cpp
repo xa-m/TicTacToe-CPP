@@ -226,7 +226,6 @@ void Game::AIMove()
 			}
 		}
 
-
 		if (moveCount == 6 && XGameStarsWithCenter)
 		{
 			// win condition
@@ -295,9 +294,72 @@ void Game::AIMove()
 						moveCount++;
 					}
 				}
+				if (moveCount == 6)
+				{
+					if (table[1][1] == playerCharacter && table[2][0] == playerCharacter)
+					{
+						table[0][2] = computerCharacter;
+						moveCount++;
+					}
+					else if (table[0][2] == playerCharacter && table[1][1] == playerCharacter)
+					{
+						table[2][0] = computerCharacter;
+						moveCount++;
+					}
+				}
 			}
 		}
 
+		if (moveCount == 8 && XGameStarsWithCenter)
+		{
+			for (int i = 0; i < 3; i++)
+			{
+				if (table[i][1] == computerCharacter && table[i][2] == computerCharacter && table[i][0] == ' ')
+				{
+					table[i][0] = computerCharacter;
+					moveCount++;
+				}
+				else if (table[i][0] == computerCharacter && table[i][1] == computerCharacter && table[i][2] == ' ')
+				{
+					table[i][2] = computerCharacter;
+					moveCount++;
+				}
+				else if (table[0][i] == computerCharacter && table[2][i] == computerCharacter && table[1][i] == ' ')
+				{
+					table[1][i] = computerCharacter;
+					moveCount++;
+				}
+			}
+
+			if (moveCount == 8)
+			{
+				if (table[1][0] == ' ')
+				{
+					table[1][0] = computerCharacter;
+					moveCount++;
+				}
+				if (table[2][1] == ' ')
+				{
+					table[2][1] = computerCharacter;
+					moveCount++;
+				}
+				if (table[0][1] == ' ')
+				{
+					table[0][1] = computerCharacter;
+					moveCount++;
+				}
+				if (table[1][2] == ' ')
+				{
+					table[1][2] = computerCharacter;
+					moveCount++;
+				}
+			}
+		}
+
+	}
+	else
+	{
+		// computer is 'O'
 	}
 
 	// checks win conditions
@@ -410,6 +472,14 @@ bool Game::noBlankSpaceLeft()
 	}
 
 	return blankSpace == 0 ? true : false;
+}
+
+bool Game::checkPlaceIsEmpty(int Row, int Colmn)
+{
+	char mark = table[Row][Colmn];
+
+	if (mark == ' ') { return true; }
+	return false;
 }
 
 //		| X |   |   |

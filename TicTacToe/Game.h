@@ -34,6 +34,8 @@ public:
 	bool noBlankSpaceLeft();
 	bool XGameStarsWithCenter;
 
+	bool checkPlaceIsEmpty(int Row, int Colmn);
+
 
 };
 
